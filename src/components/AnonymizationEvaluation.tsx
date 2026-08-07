@@ -2389,8 +2389,8 @@ export default function AnonymizationEvaluation({ project, onBack, uploadState, 
                       <tr className="bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-wider border-b border-slate-200">
                         <th className="py-3 px-5">统计维度</th>
                         <th className="py-3 px-4 text-center">总数</th>
-                        <th className="py-3 px-4 text-center">成功数</th>
-                        <th className="py-3 px-4 text-center">失败数</th>
+                        {!isMediaStats && <th className="py-3 px-4 text-center">成功数</th>}
+                        {!isMediaStats && <th className="py-3 px-4 text-center">失败数</th>}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-bold text-slate-700">
@@ -2398,10 +2398,12 @@ export default function AnonymizationEvaluation({ project, onBack, uploadState, 
                         <tr key={idx} className="hover:bg-slate-50/50">
                           <td className="py-3.5 px-5 text-slate-900 font-black">{row.dim}</td>
                           <td className="py-3.5 px-4 text-center font-mono text-slate-600">{row.total}</td>
-                          <td className="py-3.5 px-4 text-center font-mono text-emerald-600">{row.success}</td>
-                          <td className={`py-3.5 px-4 text-center font-mono ${parseInt(row.failure) > 0 ? "text-rose-600 font-black" : "text-slate-400"}`}>
-                            {row.failure}
-                          </td>
+                          {!isMediaStats && <td className="py-3.5 px-4 text-center font-mono text-emerald-600">{row.success}</td>}
+                          {!isMediaStats && (
+                            <td className={`py-3.5 px-4 text-center font-mono ${parseInt(row.failure) > 0 ? "text-rose-600 font-black" : "text-slate-400"}`}>
+                              {row.failure}
+                            </td>
+                          )}
                         </tr>
                       ))}
                     </tbody>

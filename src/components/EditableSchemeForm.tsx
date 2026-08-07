@@ -2223,7 +2223,7 @@ export default function EditableSchemeForm({ project, onBack, onSaved, onRegener
                 <div className="flex flex-wrap items-center gap-3 shrink-0 self-end md:mb-1">
                   {!isEditing ? (
                     <>
-                      {onRegenerate && (
+                      {onRegenerate && !isViewingInitial && (
                         <button
                           onClick={() => setShowRegenerateAlert(true)}
                           className="flex items-center space-x-1.5 bg-slate-50 hover:bg-slate-100 text-slate-800 border-2 border-slate-900 px-4 py-2.5 rounded text-xs font-black uppercase tracking-wider transition-all cursor-pointer shadow-sm"
